@@ -11,9 +11,6 @@ git clone https://github.com/verma-kunal/AWS-Session.git
 DOMAIN= ""
 PORT=3000
 STATIC_DIR="./client"
-
-PUBLISHABLE_KEY=""
-SECRET_KEY=""
 ```
 3. Initialise and start the project
 ```
@@ -31,6 +28,12 @@ npm run start
     - Create a new key pair & download `.pem` file
     - Instance type - t2.micro
 3. Connecting to the instance using ssh
+    - First make the .pem file only readable for you (security measure)
+    - Come back to CLI and go to .pem file directory
+```
+chmod 400 <FILENAME>.pem
+```
+   - Now connect to EC2 instance using SSH
 ```
 ssh -i instance.pem ubunutu@<IP_ADDRESS>
 ```
