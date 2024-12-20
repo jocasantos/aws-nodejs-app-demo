@@ -8,7 +8,7 @@ git clone https://github.com/jocasantos/aws-nodejs-app-demo.git
 ```
 2. Setup the following environment variables - `(.env)` file
 ```
-DOMAIN= ""
+DOMAIN="http://localhost:3000"
 PORT=3000
 STATIC_DIR="./client"
 ```
@@ -53,20 +53,36 @@ sudo apt update
 ```
 git clone https://github.com/jocasantos/aws-nodejs-app-demo.git
 ```
-2. Setup the following environment variables - `(.env)` file
+2. Go to aws-nodejs-app-demo directory
 ```
-DOMAIN= ""
+cd aws-nodejs-app-demo
+```
+3. Create the .env file
+```
+vim .env
+```
+4. Setup the following environment variables - `(.env)` file
+```
+DOMAIN="http://localhost:3000"
 PORT=3000
 STATIC_DIR="./client"
 ```
-> For this project, we'll have to set up an [Elastic IP Address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html) for our EC2 & that would be our `DOMAIN`
+> To acess our EC2 instance from the Internet we have to acess the Public IPv4 adress's instance (eg. 22.333.22.22)
 
-3. Initialise and start the project
+5. Initialise and start the project
 ```
 npm install
 npm run start
 ```
 
-> NOTE - We will have to edit the **inbound rules** in the security group of our EC2, in order to allow traffic from our particular port
+> NOTE - We will have to edit the **inbound rules** in the security group of our EC2, in order to allow traffic from our particular port (eg. 3000)
+
+6. Edit the **inbound rules**
+   - Select our instance on the instances dashboard and go to "Security" tab
+   - Open "Security groups" link
+   - Go to "Edit inbound rules"
+   - Add rule, Port range: 3000, Ip ranges: 0.0.0.0/0 (this means from anywhere), and leaves everything else default.
+  
+> Go to your browser and connect to your instance, Public IPv4 adress + Port (eg. 22.333.22.22:3000)!
 
 ### Project is deployed on AWS 🎉
