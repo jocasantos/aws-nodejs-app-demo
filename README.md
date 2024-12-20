@@ -33,7 +33,7 @@ npm run start
 ```
 chmod 400 <FILENAME>.pem
 ```
-    - Now connect to EC2 instance using SSH
+   - Now connect to EC2 instance using SSH
 ```
 ssh -i instance.pem ubunutu@<IP_ADDRESS>
 ```
